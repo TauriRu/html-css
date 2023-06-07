@@ -23,46 +23,65 @@
     </header>
 
     <main>
-      <select>
-        Results per page
-        <option>20</option>
-        <option>50</option>
-        <option>100</option>
-      </select>
-      <div class="pagination">
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-      </div>
-      <select>
-        Page
-        <option>20</option>
-        <option>50</option>
-        <option>100</option>
-      </select>
+      <div class="paginationSection">
+        <select>
+          Results per page
+          <option>20</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+        <div class="pagination">
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+        </div>
+        <select>
+          Page
+          <option>20</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+     
+    </div>
       <table>
         <thead>
           <tr>
             <th>Invoice Number</th>
             <th>Date</th>
             <th>Amount</th>
+            <th>Invoice Number</th>
+            <th>Date</th>
+            <th>Amount</th>
           </tr>
         </thead>
         <tbody>
+           
           <tr>
+            <td class="checkbox-cell"><input type="checkbox"></td>
+            <td>INV-001</td>
+            <td>2023-06-01</td>
+            <td>$100.00</td>
             <td>INV-001</td>
             <td>2023-06-01</td>
             <td>$100.00</td>
           </tr>
           <tr>
+            <td class="checkbox-cell"><input type="checkbox"></td>
             <td>INV-002</td>
             <td>2023-06-02</td>
             <td>$150.00</td>
+            <td>INV-001</td>
+            <td>2023-06-01</td>
+            <td>$100.00</td>
           </tr>
           <tr>
+            <td class="checkbox-cell"><input type="checkbox"></td>
             <td>INV-003</td>
             <td>2023-06-03</td>
             <td>$200.00</td>
+            <td>INV-001</td>
+            <td>2023-06-01</td>
+            <td>$100.00</td>
           </tr>
         </tbody>
       </table>
