@@ -1,5 +1,4 @@
-//global styles
-
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -23,6 +22,23 @@ main {
   padding: 20px;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
 /* Footer styles */
 footer {
   background-color: #333;
@@ -31,29 +47,23 @@ footer {
   text-align: center;
 }
 
-// navigation styles
-.navbar {
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
   background-color: #333;
-  overflow: hidden;
-}
-
-.navbar a {
-  float: right;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.navbar .title {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  color: #fff;
 }
