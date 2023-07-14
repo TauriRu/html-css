@@ -1,0 +1,393 @@
+/* Global styles */
+@font-face {
+  font-family: "Erply Ladna";
+  src: url("../font/ErplyLadna-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Erply Ladna";
+  src: url("../font/ErplyLadna-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Erply Ladna";
+  src: url("../font/ErplyLadna-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+}
+
+body {
+  font-family: "Erply Ladna";
+  margin: 0;
+  padding: 0;
+}
+/* Header styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+h1 {
+  margin: 0;
+}
+
+.invoiceTable {
+  padding: 24px;
+}
+.pageContainer {
+  display: grid;
+  grid-template-columns: 1fr 370px;
+  column-gap: 16px;
+}
+.paginationSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #1d2433;
+}
+.paginationSection p{
+    color: var(--text-icon-secondary-black, rgba(29, 36, 51, 0.80));
+    text-align: right;
+    font-family: Erply Ladna;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+}
+.paginationSection select {
+    padding: 6px 9px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--themes-neutral-500, #ADBBCA);
+    appearance: none;
+    padding-right: 20px; /* Adjust the padding to accommodate the SVG icon */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10.3883 12.3294L14.0048 8.49415C14.3507 8.12728 14.1057 7.5 13.6165 7.5L6.38358 7.5C5.89436 7.5 5.64936 8.12728 5.99529 8.49415L9.61173 12.3294C9.82618 12.5569 10.1739 12.5569 10.3883 12.3294Z' fill='%231D2433' fill-opacity='0.75'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 16px 16px; /* Adjust the size of the SVG icon */
+}
+.paginationSection select::-ms-expand,select::-webkit-inner-spin-button,select::-webkit-outer-spin-button {
+    display: none;
+}
+
+.invoice-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto 1fr;
+  grid-column: 1;
+  position: relative;
+}
+
+.invoice-item {
+  display: grid;
+  grid-template-columns: auto repeat(5, 1fr);
+  align-items: center;
+}
+.invoice-item:first-child {
+  background-color: transparent;
+  border: none;
+  padding: 10px 8px;
+}
+
+.invoice-header {
+  background-color: #333;
+  color: #1d2433;
+  padding: 13px 8px;
+  background: #f1f3f9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  align-self: stretch;
+}
+.invoice-text {
+  display: flex;
+  height: 64px;
+  padding: 10px 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-bottom: 1px solid #f1f3f9;
+
+  color: var(--text-icon-primary-black, #1D2433);
+    font-family: Erply Ladna;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+}
+.invoice-text span {
+    color: var(--text-icon-secondary-black, rgba(29, 36, 51, 0.80));
+    font-family: Erply Ladna;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+}
+.invoice-titles{
+    background-color: #f2f2f2 !important;
+}
+.checkbox-cell{
+    display: flex;
+    padding: 10px 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox-cell input[type="checkbox"] {
+    /* Customize the appearance of the checkbox */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ADBBCA;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+  }
+  .checkbox-cell input[type="checkbox"]:checked + .checked{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #E8F1FE;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .checkbox-cell input[type="checkbox"]:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Crect x='2.5' y='2.5' width='15' height='15' rx='3' fill='%233D8AF6'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.6781 7.73361C14.9221 7.48954 14.9221 7.09381 14.6781 6.84973C14.434 6.60565 14.0382 6.60565 13.7942 6.84973L8.26389 12.38L6.06694 10.1831C5.82286 9.93899 5.42714 9.93899 5.18306 10.1831C4.93898 10.4271 4.93898 10.8229 5.18306 11.0669L7.82195 13.7058C8.06602 13.9499 8.46175 13.9499 8.70583 13.7058L14.6781 7.73361Z' fill='white'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-color: #3D8AF6;
+    background-color: #3D8AF6;
+  }
+  
+  .invoice-titles .checkbox-cell input[type="checkbox"]:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 21' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.16667 3H15.8333C16.75 3 17.5 3.75 17.5 4.66667V16.3333C17.5 17.25 16.75 18 15.8333 18H4.16667C3.25 18 2.5 17.25 2.5 16.3333V4.66667C2.5 3.75 3.25 3 4.16667 3ZM13.3333 11.3333H6.66667C6.20643 11.3333 5.83333 10.9602 5.83333 10.5C5.83333 10.0398 6.20643 9.66667 6.66667 9.66667H13.3333C13.7936 9.66667 14.1667 10.0398 14.1667 10.5C14.1667 10.9602 13.7936 11.3333 13.3333 11.3333Z' fill='%233D94F6'/%3E%3C/svg%3E");
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+ 
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.pagination a {
+    display: flex;
+    align-items: center;
+   padding: 12px;
+   text-decoration: none;
+   color: var(--text-icon-secondary-black, rgba(29, 36, 51, 0.80));
+    text-align: right;
+    font-family: Erply Ladna;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+}
+.pagination a.next {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+    background: #F1F3F9;
+}
+.pagination a.previous{
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+    background: var(--text-icon-neutral-100, #F8F9FC);
+}
+.customerPanel {
+  grid-column: 2;
+  background: #f8f9fc;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.search-input{
+    border-radius: 4px;
+    border: 1px solid var(--themes-light-neutral-450, #BFCBD9);
+    background: var(--themes-light-neutral-0, #FFF);
+    display: flex;
+    padding: 8px 10px 8px 38px;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+   
+}
+.search-input svg{
+    position: absolute;
+    left:10px;
+    top: 8px;
+}
+.customerSearch{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 4px;
+    position: relative;
+}
+.search-icon{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+}
+.searchButton{
+    border-radius: 5px;
+    border: 1px solid var(--themes-primary-300, #ACCBF6);
+    background: var(--themes-primary-100, #E8F1FE);
+    padding: 10.5px 24px;
+    justify-content: center;
+    align-items: center;
+    color: var(--themes-light-primary-800, #166EE8);
+    font-family: Erply Ladna;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    pointer-events: all;
+    cursor: pointer;
+    line-height: normal;
+    letter-spacing: 0.32px;
+}
+.letter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5px;
+  margin-bottom: 20px;
+}
+.customer-list {
+  padding: 0px;
+  color: var(--themes-light-secondary-black, rgba(29, 36, 51, 0.75));
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.customer-item {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+.customer-item:before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Ccircle cx='4' cy='4' r='4' fill='%23E1E6EF'/%3E%3C/svg%3E");
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+  }
+  .addCustomer{
+    border-radius: 5px;
+    background: var(--themes-neutral-300, #E1E6EF);
+    display: flex;
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+  }
+  .addCustomer h3{
+    color: var(--themes-light-secondary-black, rgba(29, 36, 51, 0.75));
+    font-family: Erply Ladna;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; 
+    letter-spacing: -1px;
+    margin: 0;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .addCustomer p{
+    color: var(--themes-light-secondary-black, rgba(29, 36, 51, 0.75));
+    font-family: Erply Ladna;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    align-self: stretch;
+    margin: 0;
+  }
+  .addCustomer button{
+    display: flex;
+    padding: 10px 16px 10px 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--themes-primary-300, #ACCBF6);
+    background: var(--themes-primary-100, #E8F1FE);
+    font-family: Erply Ladna;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+    color: var(--themes-light-primary-800, #166EE8);
+    text-align: center;
+    column-gap: 4px;
+    pointer-events: all;
+    cursor: pointer;
+  }
+.letter-button {
+  color: var(--themes-light-disabled-black, rgba(29, 36, 51, 0.5));
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.8px;
+  cursor: pointer;
+}
+.invoiceTable {
+  grid-row: 1;
+}
+.TitleSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.TitleSection h3 {
+  color: var(--themes-light-secondary-black, rgba(29, 36, 51, 0.75));
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 120% */
+  letter-spacing: -1px;
+}
+.TitleSection button {
+  display: flex;
+  gap: 4px;
+  padding: 10px 16px 10px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: var(--themes-neutral-200, #f1f3f9);
+  border: 0;
+}
