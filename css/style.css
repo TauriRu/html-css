@@ -33,9 +33,7 @@ h1 {
   margin: 0;
 }
 
-.invoiceTable {
-  padding: 24px;
-}
+
 .pageContainer {
   display: grid;
   grid-template-columns: 1fr 370px;
@@ -47,6 +45,7 @@ h1 {
   align-items: center;
   margin-bottom: 20px;
   color: #1d2433;
+  padding: 24px 24px 0px 24px;
 }
 .paginationSection p{
     color: var(--text-icon-secondary-black, rgba(29, 36, 51, 0.80));
@@ -86,9 +85,10 @@ h1 {
 }
 
 .invoice-item {
-  display: grid;
-  grid-template-columns: auto repeat(5, 1fr);
-  align-items: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr) 64px;
+    width: 100%;
+    position: relative;
 }
 .invoice-item:first-child {
   background-color: transparent;
@@ -101,23 +101,18 @@ h1 {
   color: #1d2433;
   padding: 13px 8px;
   background: #f1f3f9;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  align-self: stretch;
+  text-align: left;
 }
 .invoice-text {
   display: flex;
-  height: 64px;
+  min-height: 64px;
   padding: 10px 8px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 4px;
-  align-self: stretch;
-  border-bottom: 1px solid #f1f3f9;
+ 
 
+  border-bottom: 1px solid #f1f3f9;
   color: var(--text-icon-primary-black, #1D2433);
     font-family: Erply Ladna;
     font-size: 14px;
@@ -125,7 +120,65 @@ h1 {
     font-weight: 400;
     line-height: 20px; 
 }
-.invoice-text span {
+
+.invoice-text.status{
+    display: flex;
+    padding: 4px 8px;
+    justify-content: center;
+    text-transform: uppercase;
+    align-items:center;
+    flex-direction: row
+}
+.status{
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0.24px;
+    padding: 4px 7px 4px 7px;
+    text-transform: uppercase;
+}
+.status:before{
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+.success{
+    border-radius: 3px;
+    background: var(--success-100, #F0FFF5);
+    color: var(--success-700, #5ABB7A);
+}
+.success:before{
+    background: var(--success-700, #5ABB7A);
+}
+.pending, .complete{
+    border-radius: 3px;
+    background: var(--text-icon-neutral-100, #F8F9FC);
+    color: var(--text-icon-secondary-black, rgba(29, 36, 51, 0.80));
+}
+.pending:before, .complete:before{
+    background: var(--text-icon-secondary-black, rgba(29, 36, 51, 0.80));
+}
+.in-progress{
+    border-radius: 3px;
+    background: var(--text-icon-primary-100, #E8F1FE);
+    color: var(--primary-700, #3D8AF6);
+}
+.in-progress:before{
+    background: var(--primary-700, #3D8AF6);
+}
+.invoice-text.align-right,.invoice-header.align-right{
+   align-items: flex-end;
+   text-align: right;
+}
+.invoice-text.text {
     color: var(--text-icon-secondary-black, rgba(29, 36, 51, 0.80));
     font-family: Erply Ladna;
     font-size: 10px;
@@ -144,7 +197,6 @@ h1 {
 }
 
 .checkbox-cell input[type="checkbox"] {
-    /* Customize the appearance of the checkbox */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -156,7 +208,7 @@ h1 {
     outline: none;
     cursor: pointer;
   }
-  .checkbox-cell input[type="checkbox"]:checked + .checked{
+  .invoice-grid input[type="checkbox"]:checked ~ .checked {
     position: absolute;
     top: 0;
     left: 0;
@@ -165,6 +217,7 @@ h1 {
     height: 100%;
     z-index: -1;
   }
+ 
   .checkbox-cell input[type="checkbox"]:checked {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Crect x='2.5' y='2.5' width='15' height='15' rx='3' fill='%233D8AF6'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.6781 7.73361C14.9221 7.48954 14.9221 7.09381 14.6781 6.84973C14.434 6.60565 14.0382 6.60565 13.7942 6.84973L8.26389 12.38L6.06694 10.1831C5.82286 9.93899 5.42714 9.93899 5.18306 10.1831C4.93898 10.4271 4.93898 10.8229 5.18306 11.0669L7.82195 13.7058C8.06602 13.9499 8.46175 13.9499 8.70583 13.7058L14.6781 7.73361Z' fill='white'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -391,3 +444,32 @@ h1 {
   background: var(--themes-neutral-200, #f1f3f9);
   border: 0;
 }
+.danger{
+    color: var(--danger-700, #E0593E);
+    display: flex;
+    padding: 2px 4px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background: var(--danger-100, #FFEFEC);
+    font-family: Erply Ladna;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px; /* 125% */
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+}
+
+
+
+  .invoice-text .more {
+    background-image: url('../icons/more.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  
