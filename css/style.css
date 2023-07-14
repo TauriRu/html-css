@@ -339,6 +339,7 @@ h1 {
 }
 
 .customer-item {
+    padding: 4px 0;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
