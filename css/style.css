@@ -39,6 +39,12 @@ h1 {
   grid-template-columns: 1fr 370px;
   column-gap: 16px;
 }
+@media only screen and (max-width: 1000px) {
+    .pageContainer {
+        display:block;
+        grid-template-columns: 1fr;
+    }
+}
 .paginationSection {
   display: flex;
   justify-content: space-between;
@@ -89,6 +95,12 @@ h1 {
     grid-template-columns: repeat(6, 1fr) 64px;
     width: 100%;
     position: relative;
+}
+@media only screen and (max-width: 700px) {
+    .invoice-item {
+        display:block;
+        grid-template-columns: 1fr;
+    }
 }
 .invoice-item:first-child {
   background-color: transparent;
@@ -473,4 +485,6 @@ h1 {
     cursor: pointer;
   }
   
+  @media only screen and (max-width: 700px) {
   
+  }
